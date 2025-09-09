@@ -1,0 +1,25 @@
+{
+    "name": "Dotfiles Development Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+
+    "postCreateCommand": "bash install.sh",
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.vscode-json"
+            ]
+        }
+    },
+
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspaces/dotfiles,type=bind,consistency=cached"
+    ]
+}
